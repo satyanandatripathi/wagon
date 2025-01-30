@@ -1,0 +1,21 @@
+# Core Libraries
+opencv-python-headless==4.5.5.64
+numpy==1.23.5
+pillow==9.5.0
+tqdm==4.66.1
+pyyaml==6.0.1
+reportlab==3.6.12
+
+# Machine Learning & Deep Learning
+torch==2.0.1
+torchvision==0.15.2
+timm==0.6.12
+transformers==4.31.0
+detectron2==0.6  # Detectron2 for Instance Segmentation (Damage Detection)
+
+# Logging & Utilities
+logging==0.4.9.6
+matplotlib==3.7.1
+
+# Virtual Environment Support (if using venv)
+virtualenv==20.23.0

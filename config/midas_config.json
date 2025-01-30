@@ -1,0 +1,27 @@
+{
+    "model": {
+      "weights": "./models/midas/DPT-large.pth",
+      "processor_config": "./models/midas/processor.json",
+      "device": "cuda"  // Change to "cpu" if GPU is unavailable
+    },
+    "depth_processing": {
+      "normalize_min": 0,
+      "normalize_max": 255,
+      "scale_factor": 1.0,  // Adjust if depth output needs scaling
+      "pixel_area": 0.01  // Estimated real-world area per pixel in cubic meters
+    },
+    "inference": {
+      "batch_size": 1,
+      "threshold": 0.5  // Minimum depth difference threshold to be considered as material volume
+    },
+    "visualization": {
+      "colormap": "plasma",
+      "save_depth_map": true,
+      "depth_output_dir": "./depth_maps/"
+    },
+    "debugging": {
+      "enable_logging": true,
+      "log_file": "./logs/midas_depth.log"
+    }
+  }
+  

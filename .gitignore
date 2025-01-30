@@ -1,0 +1,38 @@
+# Ignore Python cache and temporary files
+__pycache__/
+*.pyc
+*.pyo
+*.log
+
+# Ignore Virtual Environment
+env/
+venv/
+*.venv
+
+# Ignore Logs
+logs/
+*.log
+
+# Ignore Dataset and Generated Frames
+video_datasets/
+frames/
+depth_maps/
+damage_output/
+
+# Ignore Model Weights and Checkpoints
+models/mask_rcnn/
+models/midas/
+*.pth
+*.ckpt
+*.h5
+
+# Ignore Config Backup Files
+config/*.yaml~
+config/*.json~
+config/*.bak
+
+# Ignore Reports and PDF Files
+reports/*.pdf
+
+# Ignore Jupyter Notebook Checkpoints
+.ipynb_checkpoints/

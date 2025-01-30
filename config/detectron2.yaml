@@ -1,0 +1,44 @@
+# Detectron2 Model Configuration for Damage Detection
+
+# Model Paths
+model:
+  weights: "./models/mask_rcnn/model_final.pth"  # Path to trained model weights
+  config_file: "COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml"  # Base model config
+
+# Dataset Settings
+dataset:
+  train_name: "wagon_damage_train"
+  val_name: "wagon_damage_val"
+  annotation_format: "COCO"
+  train_images_path: "./train_images"
+  val_images_path: "./val_images"
+  annotations_path: "./annotations/coco_annotations.json"
+
+# Model Training Hyperparameters
+training:
+  batch_size: 2
+  num_workers: 4
+  base_lr: 0.0025
+  max_iter: 10000
+  checkpoint_period: 1000
+  output_dir: "./models/mask_rcnn"
+
+# Model Architecture Settings
+roi_heads:
+  num_classes: 1  # Number of damage classes (only "wagon_damage")
+  score_thresh_test: 0.7  # Confidence threshold for inference
+
+dataloader:
+  num_workers: 2
+
+# Evaluation Settings
+evaluation:
+  test_dataset_name: "wagon_damage_val"
+  eval_period: 500  # Evaluate every 500 iterations
+  iou_threshold: 0.5  # Intersection over Union threshold
+
+# Visualization & Debugging
+visualization:
+  output_scale: 1.2
+  draw_bounding_boxes: true
+  draw_segmentation_masks: true

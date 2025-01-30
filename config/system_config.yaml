@@ -1,0 +1,59 @@
+# General Configuration
+project_name: "Wagon Inspection System"
+log_dir: "./logs"
+report_dir: "./reports"
+frame_output_dir_empty: "./frames/empty_wagons"
+frame_output_dir_filled: "./frames/filled_wagons"
+damage_output_dir: "./damage_output"
+report_filename: "wagon_report.pdf"
+
+# Video Paths
+video_paths:
+  empty_wagons: "./video_datasets/empty_wagons.mp4"
+  filled_wagons: "./video_datasets/filled_wagons.mp4"
+
+# Frame Extraction Settings
+frame_extraction:
+  motion_detection_threshold: 5000
+  frame_interval: 10  # Save every 10th frame where motion is detected
+  video_fps: 30  # Frames per second for video capture
+
+# Damage Detection Settings
+damage_detection:
+  model_weights: "./models/mask_rcnn/model_final.pth"
+  model_config: "./models/mask_rcnn/config.yaml"
+  confidence_threshold: 0.7
+  output_scale: 1.2
+
+# Volume Estimation Settings
+volume_estimation:
+  midas_model_weights: "./models/midas/DPT-large.pth"
+  midas_processor_config: "./models/midas/processor.json"
+  pixel_area: 0.01  # Area per pixel in cubic meters
+
+# Report Settings
+report_settings:
+  font: "Helvetica"
+  title_font_size: 14
+  body_font_size: 12
+  title_position_x: 200
+  title_position_y: 750
+  body_position_start_y: 700
+  body_line_spacing: 30
+
+# Logging Settings
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(levelname)s - %(message)s"
+  date_format: "%Y-%m-%d %H:%M:%S"
+
+# Error Handling
+error_handling:
+  skip_missing_frames: true
+  warn_on_mismatch: true
+  max_retries: 3
+
+# Miscellaneous
+misc:
+  save_intermediate_results: true
+  cleanup_temp_files: false
